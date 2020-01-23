@@ -28,9 +28,9 @@ let questions = [
     },
 ]
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $(".start a").click(function(e) {
+    $(".start a").click(function (e) {
         e.preventDefault();
         $(".start").hide();
         $(".quiz").show();
@@ -38,22 +38,28 @@ $(document).ready(function() {
         showQuestion();
     });
 
-    $(".quiz ul").on("click","li", function(){
+    $(".quiz ul").on("click", "li", function () {
         $(".selected").removeClass("selected");
         $(this).addClass("selected");
         $(".quiz a").show();
-     });
+    });
 
-     $(".quiz a").click(function(e) {
+    $(".quiz a").click(function (e) {
         e.preventDefault();
-        if($("li.selected").length) {
+        if ($("li.selected").length) {
             let guess = parseInt($("li.selected").attr("id"));
             checkAnswer(guess);
+            $(".quiz a").hide();
         } else {
             alert('Please choose an answer')
         }
 
-     });
+    });
+
+    $(".summary a").click(function (e) {
+        e.preventDefault();
+        restart();
+    });
 
 });
 
@@ -72,22 +78,30 @@ function showQuestion() {
 
 function checkAnswer(guess) {
     let question = questions[currentQuestion];
-    if(question.correct === guess) {
+    if (question.correct === guess) {
         score++;
     } else {
 
     }
     currentQuestion++;
-    if(currentQuestion >= questions.length) {
+    if (currentQuestion >= questions.length) {
         showSummary();
-    } else{
-    showQuestion();
+    } else {
+        showQuestion();
     }
 }
 
 function showSummary() {
     $(".quiz").hide();
     $(".summary").show();
-    $(".summary p").text("Congrats you got "+score+" out of "+questions.length+" correct!");
+    $(".summary p").text("Congrats you got " + score + " out of " + questions.length + " correct!");
 
+}
+
+function restart() {
+    $(".summary").hide();
+    $(".quiz").show();
+    score = 0;
+    currentQuestion = 0;
+    showQuestion();
 }
