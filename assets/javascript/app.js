@@ -1,5 +1,7 @@
 let score = 0;
 let currentQuestion = 0;
+let timer = 3;
+let done = false;
 let questions = [
     {
         title: 'BMW',
@@ -30,9 +32,13 @@ let questions = [
 
 $(document).ready(function () {
 
+    $(".counter").hide();
+
     $(".start a").click(function (e) {
         e.preventDefault();
+        startTimer();
         $(".start").hide();
+        $(".counter").show();
         $(".quiz").show();
         $(".quiz a").hide();
         showQuestion();
@@ -60,8 +66,16 @@ $(document).ready(function () {
         e.preventDefault();
         restart();
     });
-
+    
+    if(timer === 0) {
+        showSummary();
+    }
 });
+
+function startTimer() {
+    setTimer();
+    // timer = 30;
+}
 
 function showQuestion() {
     let question = questions[currentQuestion];
@@ -95,7 +109,8 @@ function showSummary() {
     $(".quiz").hide();
     $(".summary").show();
     $(".summary p").text("Congrats you got " + score + " out of " + questions.length + " correct!");
-
+    done = true;
+    setTimer();
 }
 
 function restart() {
@@ -103,5 +118,18 @@ function restart() {
     $(".quiz").show();
     score = 0;
     currentQuestion = 0;
+    timer = 30;
+    done = false;
     showQuestion();
+}
+
+function setTimer() {
+    if (done) {
+        clearInterval();
+  } else {
+    setInterval(function () {
+        $(".counter").html(timer);
+        timer--;
+    }, 1000);
+  }
 }
