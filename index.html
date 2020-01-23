@@ -2,31 +2,44 @@
 
 <html lang="en-us">
 
-  <head>
+<head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>Car Quiz</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 
-  </head>
+<body>
 
-  <body>
-
-    <div id="wrapper">
-      <h1>Car Quiz!</h1>
-      <div id="sub-wrapper">
-        <div id="quiz-area">
-          <button id="start">Start</button>
-        </div>
-      </div>
+    <div class="start">
+        <h1>Car Quiz!</h1>
+        <h2>Can You Name the Emblem?</h2>
+        <a href="#">Start</a>
     </div>
 
+    <div class="quiz">
+        <h2>Question Title</h2>
+        <ul>
+            <li>Choice</li>
+            <li>Choice</li>
+            <li>Choice</li>
+            <li>Choice</li>
+        </ul>
+        <a href="#">Submit Answer</a>
+    </div>
+
+    <div class="summary">
+        <h2>Summary Screen</h2>
+        <p>Congrats you Score a total of x</p>
+        <a href="#">Restart Quiz</a>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-  </body>
+</body>
 
 </html>
-
