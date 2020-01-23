@@ -1,6 +1,6 @@
 let score = 0;
 let currentQuestion = 0;
-let timer = 3;
+let timer = 30;
 let done = false;
 let questions = [
     {
@@ -67,7 +67,7 @@ $(document).ready(function () {
         restart();
     });
     
-    if(timer === 0) {
+    if(timer <= 0) {
         showSummary();
     }
 });
@@ -110,17 +110,15 @@ function showSummary() {
     $(".summary").show();
     $(".summary p").text("Congrats you got " + score + " out of " + questions.length + " correct!");
     done = true;
-    setTimer();
+    $(".counter").hide();
 }
 
 function restart() {
     $(".summary").hide();
-    $(".quiz").show();
+    $(".start").show();
     score = 0;
     currentQuestion = 0;
     timer = 30;
-    done = false;
-    showQuestion();
 }
 
 function setTimer() {
