@@ -1,32 +1,33 @@
 let score = 0;
+let game = 0;
 let currentQuestion = 0;
 let timer = 30;
 let done = false;
 let questions = [
     {
-        title: 'BMW',
+        title: 'The Ultimate Driving Machine',
         answers: ['BMW', 'Mercedes', 'VW', 'Porsche'],
         correct: 0
     },
     {
-        title: 'Mitsubishi',
-        answers: ['Subaru', 'Honda', 'Mitsubishi', 'Suzuki'],
+        title: 'Zoom Zoom',
+        answers: ['Subaru', 'Honda', 'Mazda', 'Suzuki'],
         correct: 2
     },
     {
-        title: 'Pontiac',
-        answers: ['Saturn', 'Cadilac', 'Tesla', 'Pontiac'],
+        title: 'Innovation For All',
+        answers: ['Saturn', 'Cadilac', 'Tesla', 'Nissan'],
         correct: 3
     },
     {
-        title: 'Porsche',
+        title: 'F1 World Chanpions',
         answers: ['Ferrari', 'Porsche', 'Lambourghini', 'Abarth'],
-        correct: 1
+        correct: 0
     },
     {
-        title: 'Renault',
-        answers: ['Puegeot', 'Citreon', 'Renault', 'Mazda'],
-        correct: 2
+        title: 'New Rules',
+        answers: ['Puegeot', 'Koenigsegg', 'Renault', 'McLaren'],
+        correct: 3
     },
 ]
 
@@ -66,15 +67,17 @@ $(document).ready(function () {
         e.preventDefault();
         restart();
     });
-    
-    if(timer <= 0) {
-        showSummary();
-    }
+
 });
 
 function startTimer() {
+    if (game > 0) {
+        timer = 30;
+    }
     setTimer();
-    // timer = 30;
+    timer = 30;
+    game ++;
+    
 }
 
 function showQuestion() {
@@ -122,12 +125,13 @@ function restart() {
 }
 
 function setTimer() {
-    if (done) {
-        clearInterval();
-  } else {
+    
     setInterval(function () {
+        if (timer <= 0) {
+            showSummary();
+        }
         $(".counter").html(timer);
         timer--;
     }, 1000);
-  }
+  
 }

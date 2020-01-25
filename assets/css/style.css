@@ -1,5 +1,27 @@
 .quiz, .summary {
     display: none;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  
+    font-size: 2em;
+}
+
+.summary a {
+    font-size: 3em;
+    color: green;
+    text-decoration: none;
+}
+
+.start {
+    color: white;
+    font-size: 2em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  
+
+}
+
+.start a{
+    font-size: 3em;
+    color: green;
+    text-decoration: none;
 }
 
 .quiz ul {
@@ -7,11 +29,48 @@
     padding: 0;
 }
 
+.quiz a {
+    font-size: 2em;
+    color: green;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  
+
+}
+
 .quiz li {
     cursor: pointer;
 }
 
-.selected {
-    background-color: yellow;
+.quiz h2 {
+    font-size: 3em;
 }
 
+.quiz li:hover {
+    color: green;
+}
+
+.counter {
+    font-size: 3em;
+    font-family: monospace;
+    color: white;
+    display: flex;
+    margin: 40px;
+    justify-content: center;
+}
+
+.selected {
+    background-color: yellow;
+    color: black;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    min-width: 500px;
+    min-height: 500px;
+    background-color: crimson;
+
+}
